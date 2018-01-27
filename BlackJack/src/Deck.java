@@ -15,6 +15,7 @@ public class Deck {
      * This creates a Deck
      */
     Deck() {
+        mDeck = new Stack<Card>();
         for (int i = 0; i < 4; i++) {
             mDeck.push(new Card(1, "ACE"));
             mDeck.push(new Card(2, "2"));

@@ -28,7 +28,7 @@ public class Player {
      * and adds it to mCards
      */
     public void draw() {
-        System.out.println(mDeck.getTop().toString());
+        System.out.println("Your card is a " + mDeck.getTop().toString() + "!");
         mCards.add(mDeck.getTop());
     }
 
@@ -37,6 +37,7 @@ public class Player {
      */
     public void showHand() {
         System.out.println("Your hand is: " + getTotalHandValue());
+        System.out.println();
     }
 
     /**
