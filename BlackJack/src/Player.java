@@ -11,12 +11,14 @@ public class Player {
     private Deck mDeck;
     private ArrayList<Card> mCards;
     private Integer mNumWins;
+    private String mName;
 
     /**
      * Creates a Player object
      */
-    Player() {
-        mDeck = new Deck();
+    Player(String _name, Deck _deck) {
+        mName = _name;
+        mDeck = _deck;
         mCards = new ArrayList<Card>();
         mNumWins = 0;
     }
@@ -25,18 +27,35 @@ public class Player {
      * Draws one random card from the dect
      * and adds it to mCards
      */
-    void draw() {
+    public void draw() {
+        System.out.println(mDeck.getTop().toString());
         mCards.add(mDeck.getTop());
     }
 
     /**
      * Shows players Hand
      */
-    void showHand() {
+    public void showHand() {
+        System.out.println("Your hand is: " + getTotalHandValue());
+    }
 
+    /**
+     * Set name
+     */
+    public void addWin() {
+        mNumWins += 1;
+    }
 
+    /**
+     * This calculates total hand value
+     *
+     * @return the total hand value
+     */
+    private Integer getTotalHandValue() {
+        Integer total = 0;
         for (Card card : mCards) {
-
+            total += card.mValue;
         }
+        return total;
     }
 }

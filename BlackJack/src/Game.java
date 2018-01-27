@@ -8,7 +8,7 @@ public class Game {
     /**
      * Player member variable
      */
-    private Player mPlayer;
+    private Player mYou;
 
     /**
      * Dealer member variable
