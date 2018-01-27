@@ -1,3 +1,5 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Main {
@@ -8,7 +10,16 @@ public class Main {
      * @param _str
      */
     static void clearPrintInput(String _str) {
-        System.out.print(_str + " (positive integer): ");
+        System.out.println(_str + " (positive integer): ");
+    }
+
+    /**
+     * This static helper method prevents less error
+     * in printing input message
+     * #param _str
+     */
+    static void clearPrintInputLess(String _str) {
+        System.out.println(_str + ": ");
     }
 
     /**
@@ -20,7 +31,18 @@ public class Main {
     }
 
     /**
-     * This object holds all the 2D states
+     * Scanner object used
+     */
+    static Scanner scanner = new Scanner(System.in);
+
+    /**
+     * PI used in the program
+     */
+    static final Double PI = 3.14;
+
+
+    /**
+     * This object holds all the 2D related stuff
      */
     private static class Calc2d {
 
@@ -82,7 +104,7 @@ public class Main {
              */
             @Override
             public Double getArea() {
-                return Math.PI;
+                return PI * (mRadius * mRadius);
             }
 
             /**
@@ -90,7 +112,7 @@ public class Main {
              * @return circumference
              */
             public Double getCircumference() {
-                return 2 * Math.PI * mRadius;
+                return 2 * PI * mRadius;
             }
         }
 
@@ -139,7 +161,6 @@ public class Main {
          */
         public void run() {
 
-            Scanner scanner = new Scanner(System.in);
             Double input;
 
             clearPrintInput("Enter length of rectangle");
@@ -166,7 +187,6 @@ public class Main {
             input = scanner.nextDouble();
             mTriangle.mSideC = input;
 
-            System.out.println();
             clearPrintOutput("Area of rectangle", mRectangle.getArea());
             clearPrintOutput("Area of circle", mCircle.getArea());
             clearPrintOutput("Perimeter of rectangle", mRectangle.getPerimeter());
@@ -176,9 +196,176 @@ public class Main {
         }
     }
 
+    /**
+     * This class holds all the 3D related stuff
+     */
+    private static class Calc3d {
+
+        //
+        // Cal3d object dependencies
+        //
+
+        /**
+         * This defines a Shape3d
+         */
+        public interface Shape3d {
+            public Double getSurfaceArea();
+            public Double getVolume();
+        }
+
+        /**
+         * This implements Shape3d behaviors for Sphere
+         */
+        private class Sphere implements Shape3d {
+
+            public Double mRadius;
+
+            /**
+             * This gets the surface area of sphere
+             * @return Double surface area of Sphere
+             */
+            @Override
+            public Double getSurfaceArea() {
+                return 4 * PI * mRadius * mRadius;
+            }
+
+            /**
+             * This gets volume of Sphere
+             * @return Double volume of Sphere
+             */
+            @Override
+            public Double getVolume() {
+                return 4 * PI * (mRadius * mRadius * mRadius) / 3;
+            }
+        }
+
+        /**
+         * This implements Shape3d behaviors for RectangularPrism
+         */
+        private class RectangularPrism implements Shape3d {
+
+            public Double mDiameter;
+            public Double mWidth;
+            public Double mHeight;
+
+            /**
+             * This gets the surface area of Rectangular Prism
+             * @return Double surface area of Rectangular Prism
+             */
+            @Override
+            public Double getSurfaceArea() {
+                return 2 * ((mDiameter * mWidth) + (mDiameter * mHeight) + (mWidth * mHeight));
+            }
+
+            /**
+             * This gets the volume of Rectangular Prism
+             * @return Double volume of Rectangular Prism
+             */
+            @Override
+            public Double getVolume() {
+                return mDiameter * mWidth * mHeight;
+            }
+        }
+
+        /**
+         * This implements Shape3d for Cylinder
+         */
+        private class Cylinder implements Shape3d {
+
+            public Double mRadius;
+            public Double mHeight;
+
+            /**
+             * This gets surface area of Cylinder
+             * @return Double surface area of Cylinder
+             */
+            @Override
+            public Double getSurfaceArea() {
+                return 2 * PI * mRadius * mHeight + 2 * PI * (mRadius * mRadius);
+            }
+
+            /**
+             * This gets volume of Cylinder
+             * @return Double volume of Cylinder
+             */
+            @Override
+            public Double getVolume() {
+                return PI * (mRadius * mRadius) * mHeight;
+            }
+        }
+
+        //************ End of Cal3d dependencies **************//
+
+        /**
+         * Member variables of Calc3d
+         */
+        private Sphere mSphere;
+        private RectangularPrism mRectangularPrism;
+        private Cylinder mCylinder;
+
+        /**
+         * Instantiates all Cal3ds dependencies
+         */
+        Calc3d() {
+            mSphere = new Sphere();
+            mRectangularPrism = new RectangularPrism();
+            mCylinder = new Cylinder();
+        }
+
+        /**
+         * This runs the Cal3d object
+         */
+        public void run() {
+
+            Double input;
+
+            clearPrintInputLess("Enter the radius of the sphere");
+            input = scanner.nextDouble();
+            mSphere.mRadius = input;
+
+            clearPrintInputLess("Enter the diameter of the rectangular prism");
+            input = scanner.nextDouble();
+            mRectangularPrism.mDiameter = input;
+
+            clearPrintInputLess("Enter the height of the rectangular prism");
+            input = scanner.nextDouble();
+            mRectangularPrism.mHeight = input;
+
+            clearPrintInputLess("Enter the width of the rectangular prism");
+            input = scanner.nextDouble();
+            mRectangularPrism.mWidth = input;
+
+            clearPrintInputLess("Enter the height of the cylinder");
+            input = scanner.nextDouble();
+            mCylinder.mHeight = input;
+
+            clearPrintInputLess("Enter the radius of the cylinder");
+            input = scanner.nextDouble();
+            mCylinder.mRadius = input;
+
+            clearPrintOutput("The surface area of the sphere is", mSphere.getSurfaceArea());
+            clearPrintOutput("The volume of the sphere is", mSphere.getVolume());
+            clearPrintOutput("The surface area of the rectangular prism is", mRectangularPrism.getSurfaceArea());
+            clearPrintOutput("The volume of the rectangular prism is", mRectangularPrism.getVolume());
+            clearPrintOutput("The surface area of the cylinder is", mCylinder.getSurfaceArea());
+            clearPrintOutput("The volume of the cylinder is", mCylinder.getVolume());
+
+        }
+    }
+
+    /**
+     * Entry point
+     * @param args
+     */
     public static void main(String args[]) {
 
+        // Start Cal2d
         Calc2d cal2d = new Calc2d();
         cal2d.run();
+
+
+        // Start Cal3d
+        Calc3d cal3d = new Calc3d();
+        cal3d.run();
     }
 }
