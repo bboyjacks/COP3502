@@ -13,7 +13,7 @@ public class Game {
     /**
      * Dealer member variable
      */
-    private Dealer mDealer;
+    private Player mDealer;
 
     /**
      * Starts the game
