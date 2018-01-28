@@ -1,0 +1,19 @@
+START GAME #1
+Your card is a 5!
+Your hand is: 5
+1. Get another card
+2. Hold hand
+3. Print statistics
+4. Exit
+Your card is a 8!
+Your hand is: 13
+1. Get another card
+2. Hold hand
+3. Print statistics
+4. Exit
+Your card is a 2!
+Your hand is: 15
+1. Get another card
+2. Hold hand
+3. Print statistics
+4. Exit

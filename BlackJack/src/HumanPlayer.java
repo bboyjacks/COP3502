@@ -15,8 +15,8 @@ public class HumanPlayer implements Player {
     /**
      * Creates a HumanPlayer object
      */
-    HumanPlayer(Deck _deck) {
-        mDeck = _deck;
+    HumanPlayer() {
+        mDeck = new Deck();
         mCards = new ArrayList<Card>();
         mNumWins = 0;
     }

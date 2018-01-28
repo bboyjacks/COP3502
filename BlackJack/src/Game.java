@@ -1,3 +1,7 @@
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -48,23 +52,22 @@ public class Game {
     /**
      * HumanPlayer member variable
      */
-    private Player mYou;
-    private Player mDealer;
-    private Deck mDeck;
-    private InputParser mInputParser;
+    private Player  mDealer;
     private Integer mNumGames;
     private Integer mNumTies;
+    private Scanner mScanner;
+    private Player  mYou;
 
     /**
      * This constructs a Game object
      */
-    Game() {
-        mDeck = new Deck();
-        mYou = new HumanPlayer(mDeck);
-        mDealer = new BotPlayer();
-        Scanner scanner = new Scanner(System.in);
-        mInputParser = new InputParser(scanner);
+    Game(Player _humanPlayer, Player _botPlayer, InputStream _in, PrintStream _out) {
+        mDealer = _botPlayer;
         mNumGames = 1;
+        mNumTies = 0;
+        mScanner = new Scanner(_in);
+        mYou = _humanPlayer;
+        System.setOut(_out);
     }
 
     /**
@@ -77,12 +80,17 @@ public class Game {
         System.out.println("START GAME #" + mNumGames);
         while (selectedInput != Options.EXIT) {
 
-            draw(mYou);
+            if (selectedInput == Options.GAME_START)
+                draw(mYou);
 
             showOptions();
 
-            Integer input = mInputParser.getInput();
-            selectedInput = Options.convertToOptions(input);
+            if (mScanner.hasNextInt()) {
+                Integer input = mScanner.nextInt();
+                selectedInput = Options.convertToOptions(input);
+            } else {
+                selectedInput = Options.EXIT;
+            }
 
             switch (selectedInput) {
                 case GET_ANOTHER_CARD:
