@@ -25,7 +25,6 @@ public class InputParser {
                 mScanner.next();
             }
             input = mScanner.nextInt();
-            System.out.println();
         } while (input < 1 || input > 4);
         return input;
     }
