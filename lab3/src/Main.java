@@ -14,37 +14,37 @@ public class Main
             mpg = scanner.nextInt();
             if (mpg <= 0)
             {
-                System.out.println("ERROR: ONLY POSITIVE INTEGERS ARE ACCEPTED FOR MPG!!!");
+                System.out.println("\nERROR: ONLY POSITIVE INTEGERS ARE ACCEPTED FOR MPG!!!");
                 System.exit(0);
             }
         }
 
-        System.out.print("Enter your car's tank capacity (gallons) as a positive decimal number: ");
+        System.out.print("\nEnter your car's tank capacity (gallons) as a positive decimal number: ");
         if (scanner.hasNextDouble())
         {
             tankCapacity = scanner.nextDouble();
             if (tankCapacity <= 0.0)
             {
-                System.out.println("ERROR: ONLY POSITIVE DECIMAL NUMBERS ACCEPTED FOR TANK CAPACITY!!!");
+                System.out.print("\nERROR: ONLY POSITIVE DECIMAL NUMBERS ACCEPTED FOR TANK CAPACITY!!!");
                 System.exit(0);
             }
         }
 
-        System.out.print("Enter the percentage of the gas tank that is currently filled (from 0-100%): ");
+        System.out.print("\nEnter the percentage of the gas tank that is currently filled (from 0-100%): ");
         if (scanner.hasNextDouble())
         {
             tankPercentage = scanner.nextDouble();
-            if (tankPercentage <= 0.00 || tankPercentage >= 100.00)
+            if (tankPercentage < 0.00 || tankPercentage > 100.00)
             {
-                System.out.println("ERROR: PERCENTAGE MUST BE A DECIMAL NUMBER IN THE RANGE OF 0-100(INCLUSIVE)!!!");
+                System.out.print("\nERROR: PERCENTAGE MUST BE A DECIMAL NUMBER IN THE RANGE OF 0-100(INCLUSIVE)!!!");
                 System.exit(0);
             }
         }
 
         Integer rawRange = (int)((double)mpg * tankCapacity * (tankPercentage * 0.01));
         if (rawRange <= 25)
-            System.out.println("Attention! Your current estimated range is running low: " + rawRange + " miles left!!!");
+            System.out.print("\nAttention! Your current estimated range is running low: " + rawRange + " miles left!!!");
         else
-            System.out.println("Keep driving! Your current estimated range is: " + rawRange + " miles!");
+            System.out.print("\nKeep driving! Your current estimated range is: " + rawRange + " miles!");
     }
 }

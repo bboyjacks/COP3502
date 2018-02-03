@@ -121,8 +121,8 @@ Your hand is: 6
 
 Choose an option: 1
 
-Your card is a 6!
-Your hand is: 12
+Your card is a 2!
+Your hand is: 8
 
 1. Get another card
 2. Hold hand
@@ -132,17 +132,7 @@ Your hand is: 12
 Choose an option: 1
 
 Your card is a 2!
-Your hand is: 14
-
-1. Get another card
-2. Hold hand
-3. Print statistics
-4. Exit
-
-Choose an option: 1
-
-Your card is a 2!
-Your hand is: 16
+Your hand is: 10
 
 1. Get another card
 2. Hold hand
@@ -152,7 +142,24 @@ Your hand is: 16
 Choose an option: 1
 
 Your card is a 3!
-Your hand is: 19
+Your hand is: 13
+
+1. Get another card
+2. Hold hand
+3. Print statistics
+4. Exit
+
+Choose an option: 2
+
+Dealer's hand: 21
+Your hand is: 13
+
+You lose!
+
+START GAME #5
+
+Your card is a KING!
+Your hand is: 10
 
 1. Get another card
 2. Hold hand
@@ -162,14 +169,24 @@ Your hand is: 19
 Choose an option: 1
 
 Your card is a KING!
-Your hand is: 26
+Your hand is: 20
+
+1. Get another card
+2. Hold hand
+3. Print statistics
+4. Exit
+
+Choose an option: 1
+
+Your card is a 4!
+Your hand is: 24
 
 You exceeded 21! You lose.
 
-START GAME #5
+START GAME #6
 
-Your card is a KING!
-Your hand is: 10
+Your card is a 5!
+Your hand is: 5
 
 1. Get another card
 2. Hold hand
@@ -189,10 +206,10 @@ Please enter an integer value between 1 and 4.
 Choose an option: 3
 
 Number of Player wins: 2
-Number of Dealer wins: 1
+Number of Dealer wins: 2
 Number of tie games: 1
-Total # of games played is: 4
-Percentage of Player wins: 50.0%
+Total # of games played is: 5
+Percentage of Player wins: 40.0%
 
 1. Get another card
 2. Hold hand
