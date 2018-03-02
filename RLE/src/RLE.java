@@ -43,7 +43,34 @@ public class RLE {
 
     public static int findDecodeLength(String rleString)
     {
-        return 0;
+        char[] rleChars = rleString.toCharArray();
+
+        int index = 0;
+        int total = 0;
+
+        StringBuilder num = new StringBuilder();
+
+        while(index < rleChars.length)
+        {
+            if (Character.isDigit(rleChars[index])) {
+                num.append(rleChars[index]);
+            }
+            else {
+                String numStr = num.toString();
+                try
+                {
+                    int numInt = Integer.parseInt(numStr);
+                    total += numInt;
+                }
+                catch (NumberFormatException e)
+                {
+                    total++;
+                }
+                num.setLength(0);
+            }
+            index++;
+        }
+        return total;
     }
 
     public static char[] decodeRLE(String rleString)
@@ -81,12 +108,12 @@ public class RLE {
             }
         }*/
 
-        assertM(findEncodeLength(null) == 0);
-        assertM(findEncodeLength("aaaBBXXXAA") == 4);
-        assertM(findEncodeLength("aaaaaaaaaaaaaaa") == 1);
-        assertM(findEncodeLength("abc") == 3);
-        assertM(findEncodeLength("aaabbbccbbbaaa") == 5);
-        assertM(findEncodeLength("") == 0);
+        assertM(findDecodeLength("2a2b2c") == 6);
+        assertM(findDecodeLength("4b16X8uS") == 29);
+        assertM(findDecodeLength("100Y17L") == 117);
+        assertM(findDecodeLength("abc") == 3);
+        assertM(findDecodeLength("3a3b2c2b3a") == 13);
+        assertM(findDecodeLength("") == 0);
 
 
     }
