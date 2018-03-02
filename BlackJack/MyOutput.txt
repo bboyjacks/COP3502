@@ -8,7 +8,7 @@ Your hand is: 5
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 8!
 Your hand is: 13
@@ -18,7 +18,7 @@ Your hand is: 13
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 2!
 Your hand is: 15
@@ -28,7 +28,7 @@ Your hand is: 15
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a ACE!
 Your hand is: 16
@@ -38,7 +38,7 @@ Your hand is: 16
 3. Print statistics
 4. Exit
 
-Choose an option: 2
+Choose an option: 
 
 Dealer's hand: 24
 Your hand is: 16
@@ -55,7 +55,7 @@ Your hand is: 1
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a KING!
 Your hand is: 11
@@ -65,7 +65,7 @@ Your hand is: 11
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a KING!
 Your hand is: 21
@@ -82,7 +82,7 @@ Your hand is: 6
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a KING!
 Your hand is: 16
@@ -92,7 +92,7 @@ Your hand is: 16
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 3!
 Your hand is: 19
@@ -102,7 +102,7 @@ Your hand is: 19
 3. Print statistics
 4. Exit
 
-Choose an option: 2
+Choose an option: 
 
 Dealer's hand: 19
 Your hand is: 19
@@ -119,7 +119,7 @@ Your hand is: 6
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 2!
 Your hand is: 8
@@ -129,7 +129,7 @@ Your hand is: 8
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 2!
 Your hand is: 10
@@ -139,7 +139,7 @@ Your hand is: 10
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 3!
 Your hand is: 13
@@ -149,7 +149,7 @@ Your hand is: 13
 3. Print statistics
 4. Exit
 
-Choose an option: 2
+Choose an option: 
 
 Dealer's hand: 21
 Your hand is: 13
@@ -166,7 +166,7 @@ Your hand is: 10
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a KING!
 Your hand is: 20
@@ -176,7 +176,7 @@ Your hand is: 20
 3. Print statistics
 4. Exit
 
-Choose an option: 1
+Choose an option: 
 
 Your card is a 4!
 Your hand is: 24
@@ -193,7 +193,7 @@ Your hand is: 5
 3. Print statistics
 4. Exit
 
-Choose an option: 6
+Choose an option: 
 
 Invalid input!
 Please enter an integer value between 1 and 4.
@@ -203,7 +203,7 @@ Please enter an integer value between 1 and 4.
 3. Print statistics
 4. Exit
 
-Choose an option: 3
+Choose an option: 
 
 Number of Player wins: 2
 Number of Dealer wins: 2
@@ -216,4 +216,4 @@ Percentage of Player wins: 40.0%
 3. Print statistics
 4. Exit
 
-Choose an option: 4
+Choose an option: 
