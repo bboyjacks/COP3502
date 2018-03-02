@@ -23,7 +23,22 @@ public class RLE {
 
     public static int findEncodeLength(String inputString)
     {
-        return 0;
+        if (inputString == null)
+            return 0;
+        else
+        {
+            int result = 0;
+            char prevChar = '1';
+            for (int i = 0; i < inputString.length(); i++)
+            {
+                if (prevChar != inputString.charAt(i))
+                {
+                    result++;
+                    prevChar = inputString.charAt(i);
+                }
+            }
+            return result;
+        }
     }
 
     public static int findDecodeLength(String rleString)
@@ -66,11 +81,13 @@ public class RLE {
             }
         }*/
 
-        assertM(Arrays.equals(toCharArray(100, 'C'),    new char[]{'1', '0', '0', 'C'}));
-        assertM(Arrays.equals(toCharArray(9, 'A'),      new char[]{'9', 'A'}));
-        assertM(Arrays.equals(toCharArray(10, 'b'),     new char[]{'1', '0', 'b'}));
-        assertM(Arrays.equals(toCharArray(50, 'l'),     new char[]{'5', '0', 'l'}));
-        assertM(Arrays.equals(toCharArray(2, 'Z'),      new char[]{'2', 'Z'}));
+        assertM(findEncodeLength(null) == 0);
+        assertM(findEncodeLength("aaaBBXXXAA") == 4);
+        assertM(findEncodeLength("aaaaaaaaaaaaaaa") == 1);
+        assertM(findEncodeLength("abc") == 3);
+        assertM(findEncodeLength("aaabbbccbbbaaa") == 5);
+        assertM(findEncodeLength("") == 0);
+
 
     }
 }
