@@ -1,4 +1,5 @@
 import java.io.ByteArrayInputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class RLE {
@@ -10,7 +11,14 @@ public class RLE {
 
     public static char[] toCharArray(int charCount, char strchar)
     {
-        return new char[] { 'a', 'b' };
+        int numArray = numOfDigits(charCount) + 1;
+        char[] result = new char[numArray];
+        String intString = Integer.toString(charCount);
+        for (int i = 0; i < intString.length(); i++)
+            result[i] = intString.charAt(i);
+        result[numArray - 1] = strchar;
+
+        return result;
     }
 
     public static int findEncodeLength(String inputString)
@@ -46,7 +54,7 @@ public class RLE {
         // Scanner scanner = new Scanner(System.in);
 
         // WORKING INPUT TESTED
-/*        Scanner scanner = new Scanner(new ByteArrayInputStream("1 2 a 3 45 word 20".getBytes()));
+        /*
         while(scanner.hasNext())
         {
             if (scanner.hasNextInt())
@@ -58,8 +66,11 @@ public class RLE {
             }
         }*/
 
-        assertM(numOfDigits(2) == 1);
-        assertM(numOfDigits(12314231) == 8);
-        assertM(numOfDigits(20) == 2);
+        assertM(Arrays.equals(toCharArray(100, 'C'),    new char[]{'1', '0', '0', 'C'}));
+        assertM(Arrays.equals(toCharArray(9, 'A'),      new char[]{'9', 'A'}));
+        assertM(Arrays.equals(toCharArray(10, 'b'),     new char[]{'1', '0', 'b'}));
+        assertM(Arrays.equals(toCharArray(50, 'l'),     new char[]{'5', '0', 'l'}));
+        assertM(Arrays.equals(toCharArray(2, 'Z'),      new char[]{'2', 'Z'}));
+
     }
 }

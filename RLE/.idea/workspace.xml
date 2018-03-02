@@ -15,22 +15,20 @@
       <file leaf-file-name="RLE.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RLE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-257">
-              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="-78">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#131#132#0" expanded="true" />
-                <element signature="e#180#181#0" expanded="true" />
-                <element signature="e#253#254#0" expanded="true" />
-                <element signature="e#299#300#0" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#389#390#0" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#477#478#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
-                <element signature="e#580#581#0" expanded="true" />
-                <element signature="e#644#645#0" expanded="true" />
-                <element signature="e#705#706#0" expanded="true" />
+                <element signature="e#156#157#0" expanded="true" />
+                <element signature="e#205#206#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#687#688#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#878#879#0" expanded="true" />
+                <element signature="e#942#943#0" expanded="true" />
+                <element signature="e#1003#1004#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -290,28 +288,36 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/RLE.java</url>
+          <line>69</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/RLE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        <state relative-caret-position="-78">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#131#132#0" expanded="true" />
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#878#879#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="true" />
           </folding>
         </state>
       </provider>
