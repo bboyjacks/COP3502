@@ -48,25 +48,24 @@ public class RLE {
         int index = 0;
         int total = 0;
 
-        StringBuilder num = new StringBuilder();
+        StringBuilder numBuilder = new StringBuilder();
 
         while(index < rleChars.length)
         {
-            if (Character.isDigit(rleChars[index])) {
-                num.append(rleChars[index]);
-            }
+            if (Character.isDigit(rleChars[index]))
+                numBuilder.append(rleChars[index]);
             else {
-                String numStr = num.toString();
+                String numStr = numBuilder.toString();
                 try
                 {
                     int numInt = Integer.parseInt(numStr);
                     total += numInt;
                 }
-                catch (NumberFormatException e)
+                catch (NumberFormatException nfe)
                 {
                     total++;
                 }
-                num.setLength(0);
+                numBuilder.setLength(0);
             }
             index++;
         }
@@ -75,7 +74,32 @@ public class RLE {
 
     public static char[] decodeRLE(String rleString)
     {
-        return new char[]{'a', 'b'};
+        char[] rleChars = rleString.toCharArray();
+        char[] result = new char[findDecodeLength(rleString)];
+        StringBuilder numBuilder = new StringBuilder();
+
+        int curIndex = 0;
+        for (char character :
+             rleChars) {
+            if (Character.isDigit(character))
+                numBuilder.append(character);
+            else {
+                int curNum = 0;
+                try {
+                    curNum = Integer.parseInt(numBuilder.toString());
+                } catch (NumberFormatException nfe)
+                {
+                    curNum = 1;
+                }
+                int limit = curNum + curIndex;
+                while(curIndex < limit) {
+                    result[curIndex] = character;
+                    curIndex++;
+                }
+                numBuilder.setLength(0);
+            }
+        }
+        return result;
     }
 
     public static char[][] encodeRLE(String inputString)
@@ -108,13 +132,9 @@ public class RLE {
             }
         }*/
 
-        assertM(findDecodeLength("2a2b2c") == 6);
-        assertM(findDecodeLength("4b16X8uS") == 29);
-        assertM(findDecodeLength("100Y17L") == 117);
-        assertM(findDecodeLength("abc") == 3);
-        assertM(findDecodeLength("3a3b2c2b3a") == 13);
-        assertM(findDecodeLength("") == 0);
-
-
+        assertM(Arrays.equals(decodeRLE("2A5BC"), new char[] {'A', 'A', 'B', 'B', 'B', 'B', 'B', 'C'}));
+        assertM(Arrays.equals(decodeRLE("3L3o3L"), new char[] {'L', 'L', 'L', 'o', 'o', 'o', 'L', 'L', 'L'}));
+        assertM(Arrays.equals(decodeRLE(""), new char[] {}));
+        assertM(Arrays.equals(decodeRLE("abc"), new char[] {'a', 'b', 'c'}));
     }
 }
