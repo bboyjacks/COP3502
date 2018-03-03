@@ -11,6 +11,9 @@ public class RLE {
 
     public static char[] toCharArray(int charCount, char strchar)
     {
+        if (charCount == 1)
+            return new char[]{strchar};
+
         int numArray = numOfDigits(charCount) + 1;
         char[] result = new char[numArray];
         String intString = Integer.toString(charCount);
@@ -131,6 +134,8 @@ public class RLE {
                 scanner.next();
             }
         }*/
+
+        assertM(Arrays.equals(toCharArray(1, 'Z'), new char[]{'Z'}));
 
         assertM(Arrays.equals(decodeRLE("2A5BC"), new char[] {'A', 'A', 'B', 'B', 'B', 'B', 'B', 'C'}));
         assertM(Arrays.equals(decodeRLE("3L3o3L"), new char[] {'L', 'L', 'L', 'o', 'o', 'o', 'L', 'L', 'L'}));
