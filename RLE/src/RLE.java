@@ -107,7 +107,35 @@ public class RLE {
 
     public static char[][] encodeRLE(String inputString)
     {
-        return new char[][] { {'a', 'b'}, {'a', 'b'}};
+        int encodeLength = findEncodeLength(inputString);
+        char[][] result = new char[encodeLength][];
+        int strIndex = 0;
+
+        char prevChar = '`';
+        if (inputString.length() > 0)
+        {
+            prevChar = inputString.charAt(0);
+        }
+        for (int row = 0; row < encodeLength; row++) {
+            int curLetterCount = 1;
+
+            while (strIndex < inputString.length())
+            {
+                if (strIndex + 1 < inputString.length() && inputString.charAt(strIndex + 1) == prevChar)
+                {
+                    curLetterCount++;
+                    strIndex++;
+                }
+                else {
+                    char[] charArray = toCharArray(curLetterCount, inputString.charAt(strIndex));
+                    result[row] = charArray;
+                    if (strIndex + 1 < inputString.length())
+                        prevChar = inputString.charAt(++strIndex);
+                    break;
+                }
+            }
+        }
+        return result;
     }
 
     public static void assertM(boolean condition)
@@ -135,11 +163,8 @@ public class RLE {
             }
         }*/
 
-        assertM(Arrays.equals(toCharArray(1, 'Z'), new char[]{'Z'}));
 
-        assertM(Arrays.equals(decodeRLE("2A5BC"), new char[] {'A', 'A', 'B', 'B', 'B', 'B', 'B', 'C'}));
-        assertM(Arrays.equals(decodeRLE("3L3o3L"), new char[] {'L', 'L', 'L', 'o', 'o', 'o', 'L', 'L', 'L'}));
-        assertM(Arrays.equals(decodeRLE(""), new char[] {}));
-        assertM(Arrays.equals(decodeRLE("abc"), new char[] {'a', 'b', 'c'}));
+        assertM(Arrays.equals(encodeRLE("HELLOWORRRRRLD!!!!"), new char[][] {{'H'}, {'E'}, {'2', 'L'}, {'O'}, {'5', 'R'}, {'L'}, {'D'}, {'4', '!'}}));
+        assertM(Arrays.equals(encodeRLE("AAAAAAAAAAAAAAAAAAAAAAA"), new char[][]{{'2', '3', 'A'}}));
     }
 }
