@@ -20,7 +20,13 @@ public class Main {
             System.out.println("\nOutput " + outputCount++);
             System.out.println("Welcome to your new PokeDex!");
             System.out.print("How many Pokemon are in your region? ");
-            userInput = scanner.nextInt();
+            try
+            {
+                userInput = Integer.parseInt(scanner.nextLine());
+            }catch (NumberFormatException e)
+            {
+                e.printStackTrace();
+            }
             System.out.println();
             System.out.println("Your new Pokedex can hold " + userInput + " Pokemon. Let's start using it!");
 
@@ -36,13 +42,21 @@ public class Main {
 
                 // Ask for user input
                 System.out.print("What would you like to do? ");
-                userInput = scanner.nextInt();
+                try
+                {
+                    userInput = Integer.parseInt(scanner.nextLine());
+                }catch (NumberFormatException e)
+                {
+                    e.printStackTrace();
+                }
 
                 String species = "";
                 // Execute user input
                 switch (userInput) {
                     case LIST_POKEMON:
                         String[] pokemonList = pokedex.listPokemon();
+                        for (int i = 0; i < pokemonList.length; i++)
+                            System.out.println(i + ". " + pokemonList[i]);
                         break;
                     case ADD_POKEMON:
                         System.out.print("\nPlease enter the Pokemon of interest: ");
