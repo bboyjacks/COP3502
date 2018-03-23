@@ -38,22 +38,34 @@ public class Main {
                 System.out.print("What would you like to do? ");
                 userInput = scanner.nextInt();
 
+                String species = "";
                 // Execute user input
                 switch (userInput) {
                     case LIST_POKEMON:
-                        String line = "Here";
+                        String[] pokemonList = pokedex.listPokemon();
                         break;
                     case ADD_POKEMON:
-                        String line1 = "Here";
+                        System.out.print("\nPlease enter the Pokemon of interest: ");
+                        species = scanner.nextLine();
+                        boolean addedPokemon = pokedex.addPokemon(species);
                         break;
                     case CHECK_POKEMON_STATS:
-                        String line2 = "Here";
+                        System.out.print("\nPlease enter the Pokemon of interest: ");
+                        species = scanner.nextLine();
+                        System.out.println("\nThe stats for " + species + " are:");
+                        int[] stats = pokedex.checkStats(species);
+                        System.out.println("Attack: " + stats[0]);
+                        System.out.println("Defense: " + stats[1]);
+                        System.out.println("Speed: " + stats[2]);
                         break;
                     case EVOLVE_POKEMON:
-                        String line3 = "Here";
+                        System.out.print("\nPlease enter the Pokemon of interest: ");
+                        species = scanner.nextLine();
+                        boolean evolved = pokedex.evolvePokemon(species);
+                        System.out.println(species + " has evolved!");
                         break;
                     case SORT_POKEMON:
-                        String line4 = "Here";
+                        pokedex.sortPokedex();
                         break;
                 }
             }
