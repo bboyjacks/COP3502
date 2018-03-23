@@ -14,20 +14,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int outputCount = 1;
         int userInput = -1;
-        boolean newGame = true;
-        while (userInput != EXIT)
+        Pokedex pokedex = new Pokedex();
+        while (true)
         {
-            System.out.println("Output " + 1);
+            System.out.println("\nOutput " + outputCount++);
             System.out.println("Welcome to your new PokeDex!");
             System.out.print("How many Pokemon are in your region? ");
             userInput = scanner.nextInt();
             System.out.println();
             System.out.println("Your new Pokedex can hold " + userInput + " Pokemon. Let's start using it!");
-            System.out.println();
-            if (newGame)
-            {
+
+            while (userInput != 6) {
+
                 // Show options
-                System.out.println("1. List Pokemon");
+                System.out.println("\n1. List Pokemon");
                 System.out.println("2. Add Pokemon");
                 System.out.println("3. Check a Pokemon's Stats");
                 System.out.println("4. Evolve Pokemon");
@@ -39,20 +39,23 @@ public class Main {
                 userInput = scanner.nextInt();
 
                 // Execute user input
-                switch (userInput)
-                {
+                switch (userInput) {
                     case LIST_POKEMON:
+                        String line = "Here";
                         break;
                     case ADD_POKEMON:
+                        String line1 = "Here";
                         break;
                     case CHECK_POKEMON_STATS:
+                        String line2 = "Here";
                         break;
                     case EVOLVE_POKEMON:
+                        String line3 = "Here";
                         break;
                     case SORT_POKEMON:
+                        String line4 = "Here";
                         break;
                 }
-                newGame = false;
             }
         }
     }
