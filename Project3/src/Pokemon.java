@@ -1,5 +1,13 @@
 public class Pokemon {
 
+    Pokemon(String _species)
+    {
+        species = _species;
+        attack = (species.length() * 7) + 9;
+        defense = (species.length() * 5) + 17;
+        speed = (species.length() * 6) + 13;
+    }
+
     public int getSpeed() {
         return speed;
     }
