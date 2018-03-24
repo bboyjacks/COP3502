@@ -5,14 +5,14 @@ import java.util.Comparator;
 
 public class Pokedex implements PokedexInterface {
 
-    private String[] pokemons;
+    private Pokemon[] pokemons;
     private int totalSpaces = 0;
     private int filledSpaces = 0;
 
     Pokedex(int _numTotalSpaces)
     {
         totalSpaces = _numTotalSpaces;
-        pokemons = new String[totalSpaces];
+        pokemons = new Pokemon[totalSpaces];
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Pokedex implements PokedexInterface {
         {
             String[] pokemonList = new String[filledSpaces];
             for (int i = 0; i < filledSpaces; i++)
-                pokemonList[i] = pokemons[i];
+                pokemonList[i] = pokemons[i].getSpecies();
             return pokemonList;
         }
         else
@@ -32,7 +32,7 @@ public class Pokedex implements PokedexInterface {
     public boolean addPokemon(String species) {
         if (0 <= filledSpaces && filledSpaces < totalSpaces)
         {
-            pokemons[filledSpaces++] = species;
+            pokemons[filledSpaces++] = new Pokemon(species);
             return true;
         }
         return false;
@@ -63,9 +63,13 @@ public class Pokedex implements PokedexInterface {
         boolean success = false;
         for (int i = 0; i < filledSpaces; i++)
         {
-            if (species.equals(pokemons[i]))
+            if (species.equals(pokemons[i].getSpecies()))
             {
+                pokemons[i].setSpeed(pokemons[i].getSpeed() * 3);
+                pokemons[i].setAttack(pokemons[i].getAttack() * 2);
+                pokemons[i].setDefense(pokemons[i].getDefense() * 4);
                 success = true;
+                break;
             }
         }
         return success;
