@@ -1,4 +1,3 @@
-import java.net.SocketPermission;
 import java.util.Scanner;
 
 public class Main {
@@ -24,7 +23,7 @@ public class Main {
             try
             {
                 userInput = Integer.parseInt(scanner.nextLine());
-                pokedex = new Pokedex(30);
+                pokedex = new Pokedex(userInput);
 
                 while (userInput != EXIT) {
 
@@ -58,7 +57,8 @@ public class Main {
                         case ADD_POKEMON:
                             System.out.print("\nPlease enter the Pokemon of interest: ");
                             species = scanner.nextLine();
-                            boolean addedPokemon = pokedex.addPokemon(species);
+                            if (!pokedex.addPokemon(species))
+                                System.out.println("Max");
                             break;
                         case CHECK_POKEMON_STATS:
                             System.out.print("\nPlease enter the Pokemon of interest: ");
@@ -77,8 +77,10 @@ public class Main {
                         case EVOLVE_POKEMON:
                             System.out.print("\nPlease enter the Pokemon of interest: ");
                             species = scanner.nextLine();
-                            boolean evolved = pokedex.evolvePokemon(species);
-                            System.out.println(species + " has evolved!");
+                            if (pokedex.evolvePokemon(species))
+                                System.out.println(species + " has evolved!");
+                            else
+                                System.out.println("Missing");
                             break;
                         case SORT_POKEMON:
                             pokedex.sortPokedex();

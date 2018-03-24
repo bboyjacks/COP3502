@@ -34,7 +34,7 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public boolean addPokemon(String species) {
-        if (0 <= filledSpaces && filledSpaces <= totalSpaces)
+        if (0 <= filledSpaces && filledSpaces < totalSpaces)
         {
             pokemons[filledSpaces++] = species;
             return true;
@@ -47,7 +47,7 @@ public class Pokedex implements PokedexInterface {
         int[] stats = new int[0];
         for (int i = 0; i < filledSpaces; i++)
         {
-            if (species == pokemons[i])
+            if (species.equals(pokemons[i]))
             {
                 Pokemon pokemon = new Pokemon(species);
                 stats = new int[]{pokemon.getAttack(), pokemon.getDefense(), pokemon.getSpeed()};
@@ -59,11 +59,19 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public void sortPokedex() {
-        Arrays.sort(pokemons);
+        Arrays.sort(pokemons, 0, filledSpaces);
     }
 
     @Override
     public boolean evolvePokemon(String species) {
-        return true;
+        boolean success = false;
+        for (int i = 0; i < filledSpaces; i++)
+        {
+            if (species.equals(pokemons[i]))
+            {
+                success = true;
+            }
+        }
+        return success;
     }
 }
