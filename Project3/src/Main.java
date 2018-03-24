@@ -1,3 +1,4 @@
+import java.net.SocketPermission;
 import java.util.Scanner;
 
 public class Main {
@@ -64,9 +65,14 @@ public class Main {
                             species = scanner.nextLine();
                             System.out.println("\nThe stats for " + species + " are:");
                             int[] stats = pokedex.checkStats(species);
-                            System.out.println("Attack: " + stats[0]);
-                            System.out.println("Defense: " + stats[1]);
-                            System.out.println("Speed: " + stats[2]);
+                            if (stats.length > 0)
+                            {
+                                System.out.println("Attack: " + stats[0]);
+                                System.out.println("Defense: " + stats[1]);
+                                System.out.println("Speed: " + stats[2]);
+                            }
+                            else
+                                System.out.println("Missing");
                             break;
                         case EVOLVE_POKEMON:
                             System.out.print("\nPlease enter the Pokemon of interest: ");

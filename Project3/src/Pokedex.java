@@ -44,8 +44,16 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public int[] checkStats(String species) {
-        Pokemon pokemon = new Pokemon(species);
-        int[] stats = {pokemon.getAttack(), pokemon.getDefense(), pokemon.getSpeed()};
+        int[] stats = new int[0];
+        for (int i = 0; i < filledSpaces; i++)
+        {
+            if (species == pokemons[i])
+            {
+                Pokemon pokemon = new Pokemon(species);
+                stats = new int[]{pokemon.getAttack(), pokemon.getDefense(), pokemon.getSpeed()};
+                break;
+            }
+        }
         return stats;
     }
 
