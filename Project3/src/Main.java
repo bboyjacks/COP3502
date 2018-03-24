@@ -51,8 +51,13 @@ public class Main {
                     switch (userInput) {
                         case LIST_POKEMON:
                             String[] pokemonList = pokedex.listPokemon();
-                            for (int i = 0; i < pokemonList.length; i++)
-                                System.out.println(pokemonList[i]);
+                            if (pokemonList == null)
+                                System.out.println("Missing");
+                            else
+                            {
+                                for (int i = 0; i < pokemonList.length; i++)
+                                    System.out.println(Integer.toString(i + 1) + " " + pokemonList[i]);
+                            }
                             break;
                         case ADD_POKEMON:
                             System.out.print("\nPlease enter the Pokemon of interest: ");

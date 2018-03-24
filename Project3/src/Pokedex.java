@@ -17,19 +17,15 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public String[] listPokemon() {
-        String[] pokemonList;
-        if (filledSpaces == 0)
+        if (filledSpaces > 0)
         {
-            pokemonList = new String[1];
-            pokemonList[0] = "Empty";
-        }
-        else {
-            pokemonList = new String[filledSpaces];
+            String[] pokemonList = new String[filledSpaces];
             for (int i = 0; i < filledSpaces; i++)
-                pokemonList[i] = Integer.toString(i + 1) + " " + pokemons[i];
+                pokemonList[i] = pokemons[i];
+            return pokemonList;
         }
-
-        return pokemonList;
+        else
+            return null;
     }
 
     @Override
