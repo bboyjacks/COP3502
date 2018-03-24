@@ -1,23 +1,32 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class Pokedex implements PokedexInterface {
 
-    private ArrayList<Pokemon> pokemons = new ArrayList<Pokemon>();
+    private String[] pokemons;
+    private int totalSpaces = 0;
+    private int filledSpaces = 0;
+
+    Pokedex(int _numTotalSpaces)
+    {
+        totalSpaces = _numTotalSpaces;
+        pokemons = new String[totalSpaces];
+    }
 
     @Override
     public String[] listPokemon() {
         String[] pokemonList;
-        if (pokemons.size() == 0)
+        if (filledSpaces == 0)
         {
             pokemonList = new String[1];
-            pokemonList[0] = "empty";
+            pokemonList[0] = "Empty";
         }
         else {
-            pokemonList = new String[pokemons.size()];
-            for (int i = 0; i < pokemons.size(); i++)
-                pokemonList[i] = pokemons.get(i).getSpecies();
+            pokemonList = new String[filledSpaces];
+            for (int i = 0; i < filledSpaces; i++)
+                pokemonList[i] = Integer.toString(i + 1) + " " + pokemons[i];
         }
 
         return pokemonList;
@@ -25,8 +34,12 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public boolean addPokemon(String species) {
-        pokemons.add(new Pokemon(species));
-        return true;
+        if (0 <= filledSpaces && filledSpaces <= totalSpaces)
+        {
+            pokemons[filledSpaces++] = species;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -38,8 +51,7 @@ public class Pokedex implements PokedexInterface {
 
     @Override
     public void sortPokedex() {
-        Comparator<Pokemon> pokeComp = (Pokemon first, Pokemon second) -> { return second.getSpecies().compareTo(first.getSpecies()); };
-        Collections.sort(pokemons, pokeComp);
+        Arrays.sort(pokemons);
     }
 
     @Override
