@@ -11,6 +11,10 @@ public class Cow {
 "     \\\n" +
 "      \\";
 
-
+    public void printBody(String _quote) {
+        System.out.println("\n" + _quote);
+        System.out.println(quoteLine);
+        System.out.println(body);
+    }
 }
 

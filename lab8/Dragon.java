@@ -17,5 +17,9 @@ public class Dragon extends Cow {
 "               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~\n" +
 "                                                                  /.-~\n";
 
-
+    public void printBody(String _quote) {
+        System.out.println("\n" + _quote);
+        System.out.println(quoteLine);
+        System.out.println(body);
+    }
 }
